@@ -1,7 +1,10 @@
 #include "login.h"
 #include "mainwindow.h"
 #include <QVBoxLayout>
-#include <QHBoxLayout>
+#include <QLabel>
+#include <QPushButton>
+#include <QUrl>
+#include <QNetworkRequest>
 #include <QDebug>
 
 Login::Login(QWidget *parent) : QWidget(parent) {
@@ -18,7 +21,6 @@ Login::Login(QWidget *parent) : QWidget(parent) {
     errorLabel->setStyleSheet("color: red");
 
     temperaturaLabel = new QLabel("Cargando temperatura...");
-    obtenerTemperatura();  // Simular API
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->addWidget(lblUsuario);
@@ -32,13 +34,38 @@ Login::Login(QWidget *parent) : QWidget(parent) {
     setLayout(layout);
 
     connect(btnIngresar, &QPushButton::clicked, this, &Login::validarLogin);
+
+    manager = new QNetworkAccessManager(this);
+    connect(manager, &QNetworkAccessManager::finished, this, &Login::procesarRespuesta);
+
+    obtenerTemperatura();
 }
 
 void Login::obtenerTemperatura() {
-    // Simulamos obtener temperatura de una API
-    QString ciudad = "Cordoba";
-    int temperatura = 24 + (rand() % 5);  // Valor entre 24 y 28
-    temperaturaLabel->setText("Temperatura en " + ciudad + ": " + QString::number(temperatura) + "°C");
+    QString apiKey = "68fd0a13060549cc1e8d2427dec6bbcb";  // Usar key https://home.openweathermap.org/api_keys
+    QString url = "https://api.openweathermap.org/data/2.5/weather?q=Cordoba,AR&units=metric&appid=" + apiKey;
+    QUrl qurl(url);
+    QNetworkRequest request(qurl);
+    manager->get(request);
+}
+
+void Login::procesarRespuesta(QNetworkReply* reply) {
+    if (reply->error() != QNetworkReply::NoError) {
+        temperaturaLabel->setText("Error al obtener temperatura");
+        qDebug() << "Error:" << reply->errorString();
+        reply->deleteLater();
+        return;
+    }
+
+    QByteArray respuesta = reply->readAll();
+    QJsonDocument doc = QJsonDocument::fromJson(respuesta);
+    QJsonObject obj = doc.object();
+    QJsonObject mainObj = obj["main"].toObject();
+    double temperatura = mainObj["temp"].toDouble();
+
+    temperaturaLabel->setText("Temperatura en Córdoba: " + QString::number(temperatura) + "°C");
+
+    reply->deleteLater();
 }
 
 void Login::validarLogin() {

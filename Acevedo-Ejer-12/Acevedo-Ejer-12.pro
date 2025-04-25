@@ -1,4 +1,5 @@
-QT += widgets
+QT += widgets network
+
 CONFIG += c++11
 
 HEADERS += \

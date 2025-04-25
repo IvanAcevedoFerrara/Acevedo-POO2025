@@ -5,6 +5,10 @@
 #include <QLineEdit>
 #include <QLabel>
 #include <QPushButton>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 class Login : public QWidget {
     Q_OBJECT
@@ -14,6 +18,8 @@ public:
 
 private slots:
     void validarLogin();
+    void obtenerTemperatura();
+    void procesarRespuesta(QNetworkReply* reply);
 
 private:
     QLineEdit* usuario;
@@ -21,7 +27,7 @@ private:
     QLabel* temperaturaLabel;
     QLabel* errorLabel;
 
-    void obtenerTemperatura();  // Simulada
+    QNetworkAccessManager* manager;
 };
 
 #endif // LOGIN_H
