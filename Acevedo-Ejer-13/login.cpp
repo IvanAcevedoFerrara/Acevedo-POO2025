@@ -1,5 +1,5 @@
 #include "login.h"
-#include <QVBoxLayout>
+#include <QGridLayout>
 #include <QDebug>
 #include <QImageReader>
 
@@ -16,7 +16,7 @@ Login::Login(QWidget *parent) : QWidget(parent) {
 
     btnIngresar = new QPushButton("Ingresar", this);
 
-    QVBoxLayout *layout = new QVBoxLayout();
+    QGridLayout *layout = new QGridLayout();
     layout->addWidget(usuarioInput);
     layout->addWidget(claveInput);
     layout->addWidget(btnIngresar);
