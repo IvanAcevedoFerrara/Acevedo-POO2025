@@ -1,6 +1,6 @@
 #include "login.h"
 #include "mainwindow.h"
-#include <QVBoxLayout>
+#include <QGridLayout >
 #include <QLabel>
 #include <QPushButton>
 #include <QUrl>
@@ -22,7 +22,7 @@ Login::Login(QWidget *parent) : QWidget(parent) {
 
     temperaturaLabel = new QLabel("Cargando temperatura...");
 
-    QVBoxLayout* layout = new QVBoxLayout;
+    QGridLayout * layout = new QGridLayout ;
     layout->addWidget(lblUsuario);
     layout->addWidget(usuario);
     layout->addWidget(lblContrasena);
