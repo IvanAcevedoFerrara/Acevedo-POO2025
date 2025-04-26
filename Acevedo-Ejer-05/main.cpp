@@ -1,6 +1,6 @@
 #include <QApplication>
 #include <QLabel>
-#include <QPixmap>
+#include <QImage>
 #include <QTimer>
 #include <QScreen>
 
@@ -10,26 +10,29 @@ int main(int argc, char* argv[]) {
     // Crear objeto QLabel
     QLabel* etiqueta = new QLabel;
 
-    // Cargar imagen desde disco
-    QPixmap imagen("C:/Escritorio/UBP/POO2025/Acevedo-Ejer-05/paisaje.jpeg"); // Ruta completa de la imagen
+    // Cargar imagen desde disco usando QImage
+    QImage imagen("C:/Escritorio/UBP/POO2025/Ejercios/Acevedo-Ejer-05/paisaje.jpeg"); // Ruta completa de la imagen
 
-    // Verificar si la imagen se cargó correctamente
+    // Verificar si la imagen se cargÃ³ correctamente
     if (imagen.isNull()) {
         qWarning("No se pudo cargar la imagen.");
         return -1;
     }
 
-    // Obtener el tamaño de la pantalla
+    // Obtener el tamaÃ±o de la pantalla
     QScreen* screen = QGuiApplication::primaryScreen();
-    QSize screenSize = screen->size();
+    QSize screenSize = screen->availableSize();
 
-    // Ajustar la imagen al tamaño de la pantalla sin deformarla
-    etiqueta->setPixmap(imagen.scaled(screenSize, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    // Escalar la imagen al tamaÃ±o de la pantalla sin deformarla
+    QImage imagenEscalada = imagen.scaled(screenSize, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+
+    // Mostrar la imagen en QLabel
+    etiqueta->setPixmap(QPixmap::fromImage(imagenEscalada));
 
     // Mostrar la etiqueta en pantalla completa
-    etiqueta->showMaximized();
+    etiqueta->showFullScreen();
 
-    // Cerrar la aplicación luego de 3 segundos
+    // Cerrar la aplicaciÃ³n luego de 3 segundos
     QTimer::singleShot(3000, &app, SLOT(quit()));
 
     return app.exec();
