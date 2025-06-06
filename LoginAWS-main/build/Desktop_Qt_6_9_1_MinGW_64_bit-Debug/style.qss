@@ -1,0 +1,138 @@
+/* Fondo general */
+QWidget {
+    background-color: #23272f;
+    color: #f4f4f4;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    font-size: 15px;
+}
+
+/* Panel izquierdo (historial) */
+QWidget#verticalWidget {
+    background-color: #20232a;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+/* Etiquetas y títulos */
+QLabel, QGroupBox::title {
+    color: #8ecae6;
+    font-weight: bold;
+    padding-bottom: 4px;
+}
+
+/* Caja de texto de transcripción */
+QPlainTextEdit, QTextEdit {
+    background: #181a20;
+    color: #f4f4f4;
+    border-radius: 8px;
+    border: 1px solid #555;
+    padding: 8px;
+}
+
+/* Botones principales */
+QPushButton, QToolButton {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                               stop:0 #3a6ea5, stop:1 #26425a);
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    padding: 8px 22px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+}
+QPushButton:hover, QToolButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                               stop:0 #539dcf, stop:1 #2b5379);
+}
+QPushButton:pressed, QToolButton:pressed {
+    background: #22324a;
+}
+
+QPushButton#saveTranscriptionButton {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                               stop:0 #43aa8b, stop:1 #327c63);
+}
+QPushButton#saveTranscriptionButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                               stop:0 #63dabf, stop:1 #42b79e);
+}
+
+QPushButton#exportWordButton,
+QPushButton#exportPdfButton,
+QPushButton#exportTxtButton {
+    background: #313845;
+    color: #8ecae6;
+    border-radius: 6px;
+    padding: 7px 13px;
+    font-size: 14px;
+}
+QPushButton#exportWordButton:hover,
+QPushButton#exportPdfButton:hover,
+QPushButton#exportTxtButton:hover {
+    background: #39506c;
+    color: #fff;
+}
+
+/* ListView (historial) */
+QListView {
+    background: #14171c;
+    border-radius: 8px;
+    border: 1px solid #2c3340;
+    color: #f4f4f4;
+    padding: 8px;
+    font-size: 14px;
+}
+QListView::item:selected {
+    background: #3a6ea5;
+    color: #fff;
+    border-radius: 4px;
+}
+QListView::item:hover {
+    background: #26425a;
+    color: #fff;
+}
+
+/* Scrollbar */
+QScrollBar:vertical, QScrollBar:horizontal {
+    background: #23272f;
+    border: none;
+    width: 10px;
+    margin: 0px 0px 0px 0px;
+}
+QScrollBar::handle:vertical, QScrollBar::handle:horizontal {
+    background: #3a6ea5;
+    min-height: 25px;
+    border-radius: 5px;
+}
+QScrollBar::handle:vertical:hover, QScrollBar::handle:horizontal:hover {
+    background: #8ecae6;
+}
+QScrollBar::add-line, QScrollBar::sub-line {
+    background: none;
+    border: none;
+}
+QScrollBar::add-page, QScrollBar::sub-page {
+    background: none;
+}
+
+/* Mensajes y diálogos */
+QMessageBox {
+    background: #23272f;
+    color: #f4f4f4;
+    font-size: 15px;
+}
+
+QMessageBox QLabel {
+    color: #f4f4f4;
+}
+
+QMessageBox QPushButton {
+    min-width: 80px;
+    border-radius: 6px;
+    background: #3a6ea5;
+    color: #fff;
+}
+QMessageBox QPushButton:hover {
+    background: #539dcf;
+}
