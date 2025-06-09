@@ -38,7 +38,7 @@ El objetivo principal de este repositorio es documentar el proceso de aprendizaj
 ## 📌 Autor
 
 **Iván Acevedo Ferrara**  
-Estudiante de [nombre de la institución si querés agregarlo].  
+Estudiante de UBP  
 Año: 2025  
 Materia: Programación Orientada a Objetos (POO)
 
