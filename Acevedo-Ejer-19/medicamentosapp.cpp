@@ -77,7 +77,6 @@ void MedicamentosApp::sumarCajas() {
         return;
     }
 
-
     // Eliminar las cajas originales de la base de datos
     QSqlQuery query;
     query.prepare("DELETE FROM cajas_medicamentos WHERE id = :id1 OR id = :id2");

@@ -30,7 +30,10 @@ Ventana::~Ventana() {
 
 void Ventana::paintEvent(QPaintEvent *event) {
     QPainter painter(this);
-    QImage fondo(":/imagenes/fondo.png"); // Ruta de la imagen del fondo
-    painter.drawImage(rect(), fondo); // Dibujar la imagen como fondo
+    QImage fondo("C:/Escritorio/UBP/POO2025/Ejercios/Acevedo-Ejer-17/fondo.png");
+    if (!fondo.isNull()) {
+        painter.drawImage(rect(), fondo);
+    }
     QWidget::paintEvent(event);
 }
+

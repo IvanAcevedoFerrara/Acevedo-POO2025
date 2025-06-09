@@ -17,10 +17,10 @@ Ventana::Ventana(QWidget *parent) : QWidget(parent) {
 
 void Ventana::imagenDescargada(QNetworkReply *reply) {
     imagenOriginal.loadFromData(reply->readAll());
-
-    // Mostrar imagen ya adaptada al tamaño actual
     redibujarFondo();
+    emit imagenLista(); // Notificamos que está lista la imagen
 }
+
 
 void Ventana::resizeEvent(QResizeEvent* event) {
     QWidget::resizeEvent(event);

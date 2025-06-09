@@ -54,11 +54,18 @@ void Login::validarUsuario() {
     QString clave = claveInput->text();
 
     if (usuario == "admin" && clave == "1234") {
-        this->hide();
-
         Ventana *ventana = new Ventana();
-        ventana->showFullScreen();
+
+        // Conectamos la señal para mostrar solo cuando la imagen esté lista
+        connect(ventana, &Ventana::imagenLista, [=]() {
+            ventana->showFullScreen();
+            this->close(); // Cerramos el login
+        });
+
+        // Opción: Podés ocultar el login antes también si querés
+        // this->hide();
     } else {
         qDebug() << "Usuario o clave incorrecta";
     }
 }
+

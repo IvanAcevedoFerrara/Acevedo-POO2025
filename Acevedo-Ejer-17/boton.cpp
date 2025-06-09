@@ -3,7 +3,7 @@
 #include <QMouseEvent>
 
 Boton::Boton(QWidget *parent) : QWidget(parent), colorActual(Qt::gray) {
-    setFixedSize(300, 50); // Tamaño por defecto
+    setFixedSize(450,100); // Tamaño por defecto
 }
 
 void Boton::colorear(Boton::Color color) {
@@ -30,9 +30,12 @@ void Boton::colorear(Boton::Color color) {
 
 void Boton::paintEvent(QPaintEvent *event) {
     QPainter painter(this);
-    painter.fillRect(rect(), colorActual); // Dibujar el rectángulo con el color actual
-    QWidget::paintEvent(event);
+    painter.fillRect(rect(), colorActual);
+    painter.setPen(Qt::black);
+    painter.drawRect(rect().adjusted(0, 0, -1, -1)); // Borde
+    painter.drawText(rect(), Qt::AlignCenter, "Clic");
 }
+
 
 void Boton::mousePressEvent(QMouseEvent *event) {
     if (event->button() == Qt::LeftButton) {

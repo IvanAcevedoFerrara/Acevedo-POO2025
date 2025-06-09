@@ -1,21 +1,21 @@
-#ifndef ADMINDB_H
-#define ADMINDB_H
+    #ifndef ADMINDB_H
+    #define ADMINDB_H
 
-#include <QString>
-#include <QSqlDatabase>
+    #include <QString>
+    #include <QSqlDatabase>
 
-class AdminDB {
-private:
-    static AdminDB *instancia;
-    QSqlDatabase db;
+    class AdminDB {
+    private:
+        static AdminDB *instancia;
+        QSqlDatabase db;
 
-    AdminDB();
+        AdminDB();
 
-public:
-    static AdminDB *getInstancia();
-    void conectar();
-    bool validarUsuario(const QString &nombre, const QString &password, QString &ultimoIngreso);
-    void actualizarUltimoIngreso(const QString &nombre);
-};
+    public:
+        static AdminDB *getInstancia();
+        void conectar();
+        bool validarUsuario(const QString &nombre, const QString &password, QString &ultimoIngreso);
+        void actualizarUltimoIngreso(const QString &nombre);
+    };
 
-#endif // ADMINDB_H
+    #endif // ADMINDB_H

@@ -25,6 +25,8 @@ private:
     QNetworkAccessManager *manager;
 
     void redibujarFondo();
+signals:
+    void imagenLista();
 };
 
 #endif // VENTANA_H

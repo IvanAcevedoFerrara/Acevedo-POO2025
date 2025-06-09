@@ -17,7 +17,7 @@ AdminDB *AdminDB::getInstancia() {
 
 void AdminDB::conectar() {
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(":memory:"); // Base de datos en memoria. Cambiar por "usuarios.db" si deseas persistencia.
+    db.setDatabaseName("usuarios.db"); // En disco
 
     if (!db.open()) {
         qDebug() << "Error al conectar con la base de datos:" << db.lastError().text();
