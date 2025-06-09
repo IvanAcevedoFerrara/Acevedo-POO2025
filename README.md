@@ -35,10 +35,6 @@ Cada proyecto contiene su propio archivo `.pro` y los archivos fuente (`.cpp`, `
 
 El objetivo principal de este repositorio es documentar el proceso de aprendizaje de la POO en C++ utilizando Qt como herramienta para el desarrollo de aplicaciones visuales. También sirve como referencia para futuros proyectos o para otros estudiantes que estén comenzando con la programación orientada a objetos y Qt.
 
-## 📸 Capturas (opcional)
-
-Pueden agregarse imágenes de los proyectos en funcionamiento para mostrar visualmente el resultado de los ejercicios.
-
 ## 📌 Autor
 
 **Iván Acevedo Ferrara**  
