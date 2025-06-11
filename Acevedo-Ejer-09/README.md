@@ -7,4 +7,4 @@
 - Replicar el ejemplo realizado en la clase de hoy y hacerlo funcionar para que la imagen se descargue.  
 - El video del estudiante deberá quedar en su canal de Youtube con No listado.  
 - El video es: **Primer aplicación con network 2025**.  
-https://youtu.be/HVL9NnIQ5ks
+[Mi Primer QT Network-Acevedo-Ejercicio-9-POO-2025](https://youtu.be/HVL9NnIQ5ks)
